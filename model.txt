@@ -1,0 +1,59 @@
+
+table user {
+  id int pk
+  username char 
+  password char
+  first_name char
+  last_name char
+  email email
+  is_staff bool
+  is_active bool
+  is_superuser bool
+}
+
+table personnels {
+  id int pk
+  user fk 
+  image image
+  skills mmk ////skills
+  content char 
+  status bool 
+  created_at datetime
+  updated_at datetime
+}
+
+table skills {
+  id int pk
+  name char
+  created_at datetime
+  updated_at datetime
+}
+
+table feature {
+  id int pk 
+  name char 
+
+}
+table category {
+  id int pk 
+  name char
+  features mmk ///features
+}
+
+table food {
+  id int pk 
+  name char
+  content char
+  category mmk ////categoty
+  price float 
+  recommend bool
+  old_price float
+}
+
+Ref: "personnels"."user" < "user"."id"
+
+Ref: "personnels"."skills" < "skills"."id"
+
+Ref: "category"."features" < "feature"."id"
+
+Ref: "food"."category" < "category"."id"
